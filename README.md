@@ -20,6 +20,9 @@ pip install selenium
 pip install webdriver_manager
 ```
 
+### 알려진 버그
+> 윈도우 터미널에서 그냥 종료시 크롬 창이 무한생성되는 버그가 있습니다. (Ctrl + C로 종료시 해당 문제는 없어집니다.)
+
 ### 릴리즈 (0.1 Beta)
 > Windows: https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Windows)%20InhaSugangTryBot%20V0.1%20Beta.exe
 
