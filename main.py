@@ -28,6 +28,7 @@ def login(driver, id, password):
     driver.find_element(by=By.ID, value="txtCode").send_keys(id)
     driver.find_element(by=By.ID, value="txtPassword").send_keys(password)
     driver.find_element(by=By.ID, value="ibtnLogin").click()
+    print("로그인 하였습니다.")
 
 
 def wait_alert(driver):
@@ -49,21 +50,36 @@ def try_sugang(driver):
             continue
         # 수강신청 하시겠습니까? alert창 무효화
         wait_alert(driver)
+        print("수강신청 질문 창 무효화")
         # 수강신청이 성공되었습니다./인원이 가득 찼습니다. alert창 무효화
         wait_alert(driver)
+        print("수강신청 성공/실패 창 무효화")
 
 
-print("제작자: 양태영")
-print("#########################################################################")
-print("프로그램을 종료할 때는 꼭 Ctrl + C를 통해 종료해주세요!!")
-print("############################# 주의사항 ##################################")
-print("해당 프로그램은 학습용이며, 교칙에 의거하여 실제로 사용하는 것을 금합니다.")
+print("################################################################################")
+print("인하대학교 수강신청 봇")
+print("제작자: 양태영, 버그 리포트: 0130yang@gmail.com")
+print("################################################################################")
+print("Windows: 프로그램을 종료할 때는 꼭 Ctrl + C를 통해 종료해주세요!! (명령 프롬프트 창에서)")
+print("Mac OS: 프로그램을 종료할 때는 터미널에서 Command + Q를 눌러 완전히 종료해주세요")
+print("################################# 주의사항 #####################################")
+print("해당 프로그램은 학습용이며, 교칙에 의거하여 \"실제로 사용하는 것을 금합니다.\"")
 print("이를 어길 시 모든 책임은 사용자 본인에게 있습니다.")
-print("#########################################################################")
-flag = input("인지하셨습니까? (Y/N): ")
-
+print("################################################################################")
+flag = input("동의하십니까? (Y/N): ")
 if flag.lower() != "y":
     sys.exit()
+print("################################################################################")
+print("백그라운드에서 실행하실 수 있습니다. 크롬창이 보이지 않습니다만, \n 해당기능은 테스트가 완전히 실행되지 않았습니다.")
+print("따라서 불안정하게 동작할 수 있습니다.")
+print("단, 백그라운드에서 실행하실 경우 하시던 작업을 지속하실 수 있습니다.")
+print("제작자는 2개의 컴퓨터를 가진 경우 컴퓨터 하나에는 메크로를 백그라운드가 아닌 경우\n로 실행시키고, 본 컴퓨터에서 실제 수강신청을 하길 권장합니다.")
+flag = input("백 그라운드에서 실행하시겠습니까? (Y/N): ")
+print("################################################################################")
+print("해당 버전은 Beta 버전입니다.")
+print("오류가 발생할 수 있으며,")
+print("해당 프로그램에 의해 발생한 피해(수강신청 실패 등)은 제작자가 책임지지 않습니다.")
+print("################################################################################")
 
 # 아이디, 비밀번호 입력 받는 곳
 id = input("유저 정보를 입력 받습니다.\n아이디를 입력해주세요: ")
@@ -77,8 +93,12 @@ times = datetime.time(hour=hours, minute=minute, second=0)
 start_time = datetime.datetime.combine(today, times)
 print(f"설정된 시각: {start_time.isoformat()}")
 
+if flag.lower() == "y":
+    headless = True
+else:
+    headless = False
 # 전체 수강신청 흐름 담당
-driver = set_chrome_driver()
+driver = set_chrome_driver(headless=headless)
 # 원격으로 시간 정보 받아오는 담당
 driver_time = set_chrome_driver(headless=True)
 # 수강 신청 사이트 오픈 (유저에게 보이게 설정)
@@ -101,9 +121,10 @@ driver.switch_to.frame("MainFrame")
 
 # 수강신청 페이지에서 첫 alert창 기다렸다 무효화
 wait_alert(driver)
-
+print("INFO: 첫 알림 메시지를 무효화 합니다.")
 # 수강신청 대기 리스트가 있으면 수강신청 시도 계속하기
-while len(driver.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11:
+while count := (len(driver.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11):
+    print(f"수강신청 항목이 {count}개 남았습니다. 계속 시도합니다.")
     try_sugang(driver)
 
-print("모든 수강신청이 종료되었습니다. 축하합니다!")
+print("수강신청이 종료되었습니다.")
