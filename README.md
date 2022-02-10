@@ -69,6 +69,14 @@ pip install webdriver_manager
 > 창이 무한생성 될 때 로그오프을 하셨다가 다시 로그온 하시거나, 컴퓨터를 재부팅하시면 해결됩니다. 
 <hr>
 
+### V0.1 예정
+
+> 아이디, 비밀번호 틀릴 시 식별하도록 설정할 예정입니다.
+
+> 백그라운드 외에서의 실행을 제한할 예정입니다.
+
+> 수강신청 목록을 인식하고, 수강신청시 해당 수강신청 성공/실패 여부를 반영할 예정입니다.
+
 ### 릴리즈 (0.1 Beta)
 > **Windows** (11 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Windows)%20InhaSugangTryBot%20V0.1%20Beta.exe
 
