@@ -41,23 +41,25 @@ pip install webdriver_manager
 
 ![image](https://user-images.githubusercontent.com/59782504/153318378-a948b7ae-11f7-44f3-8705-8e090bff8467.png)
 
-1. 본 프로그램은 크롤링 학습용 프로그램입니다. 아래 동의사항에 동의합니다.
+> 1. 본 프로그램은 크롤링 학습용 프로그램입니다. 아래 동의사항에 동의합니다.
 
 ![image](https://user-images.githubusercontent.com/59782504/153318532-823f6670-5f04-4ef8-84f6-bebd05704c79.png)
 
-2. 백그라운드에서 실행 여부를 묻습니다. Y나 N을 누르시면 됩니다. (Y를 권장합니다.)
+> 2. 백그라운드에서 실행 여부를 묻습니다. Y나 N을 누르시면 됩니다. (Y를 권장합니다.)
 
 ![image](https://user-images.githubusercontent.com/59782504/153318633-ba7a54bc-4da3-42ff-b534-570f898a8b68.png)
 
-3. 아이디와 비밀번호를 묻습니다. 실제 로그인 되는 비밀번호로 입력하셔야 하며, 해당 프로그램은 로그인을 시도할 뿐 로그인 실패를 알아내지 못합니다. 따라서 사전에 아이디와 비밀번호가 로그인 가능한지 확인하셔야 합니다.
+> 3. 아이디와 비밀번호를 묻습니다. 실제 로그인 되는 비밀번호로 입력하셔야 합니다
+
+> 해당 프로그램은 로그인을 시도할 뿐 로그인 실패를 알아내지 못합니다. 따라서 사전에 아이디와 비밀번호가 로그인 가능한지 확인하셔야 합니다.
 
 ![image](https://user-images.githubusercontent.com/59782504/153318795-d21b0592-dce2-4836-ba0c-f8a23c1f42a4.png)
 
-4. 수강신청 시작 시각을 묻습니다. 10시 00분에 시작한다면 위의 예시처럼 10, 00을 차례대로 입력합니다.
+> 4. 수강신청 시작 시각을 묻습니다. 10시 00분에 시작한다면 위의 예시처럼 10, 00을 차례대로 입력합니다.
 
 ![image](https://user-images.githubusercontent.com/59782504/153318940-f53e51eb-e652-4566-be0c-0e178e11026f.png)
 
-5. 남은 시간이 나옵니다. 타이머가 끝날 경우 자동적으로 수강신청 시도를 시작합니다.
+> 5. 남은 시간이 나옵니다. 타이머가 끝날 경우 자동적으로 수강신청 시도를 시작합니다.
 
 <hr>
 
@@ -68,6 +70,6 @@ pip install webdriver_manager
 <hr>
 
 ### 릴리즈 (0.1 Beta)
-> Windows: https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Windows)%20InhaSugangTryBot%20V0.1%20Beta.exe
+> **Windows** (11 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Windows)%20InhaSugangTryBot%20V0.1%20Beta.exe
 
-> Mac Os: https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Mac)%20InhaSugangTryBot%20V0.1%20Beta
+> **Mac OS** (Monetery 12.2 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Mac)%20InhaSugangTryBot%20V0.1%20Beta
