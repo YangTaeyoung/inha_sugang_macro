@@ -77,6 +77,8 @@ pip install webdriver_manager
 
 > 수강신청 목록을 인식하고, 수강신청시 해당 수강신청 성공/실패 여부를 반영할 예정입니다.
 
+<hr>
+
 ### 릴리즈 (0.1 Beta)
 > **Windows** (11 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Windows)%20InhaSugangTryBot%20V0.1%20Beta.exe
 
