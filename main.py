@@ -1,4 +1,5 @@
 import sys
+import time
 
 import selenium
 from selenium import webdriver
@@ -6,7 +7,13 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import datetime
+import platform
+import os
 
+CLEAR = {
+    "Darwin": "clear",
+    "Windows": "cls"
+}
 
 # 크롬 드라이버를 세팅하고, 실행시키는 함수
 def set_chrome_driver(headless=False):
@@ -16,11 +23,13 @@ def set_chrome_driver(headless=False):
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
+
 # 현재 날짜를 가져오는 함수
 def get_now(driver_time):
     text = driver_time.find_element(by=By.ID, value="time_area").text
     time = datetime.datetime.strptime(text, "%Y년 %m월 %d일 %H시 %M분 %S초")
     return time
+
 
 # 로그인 시키는 함수, 비밀번호가 틀리면 다시 입력하라는 함수가 출력
 def login(driver):
@@ -122,11 +131,18 @@ driver.implicitly_wait(1)
 
 # 로그인
 login(driver)
-
+#
+print("################################################################################")
+print("로그인을 성공하였습니다. ")
+print("설정한 시각에 따라 3초 후 타이머가 시작됩니다.")
+print("################################################################################")
+time.sleep(3)
 while True:
     if (rest := (start_time - get_now(driver_time))).seconds <= 0:
         break
+    os.system(CLEAR[platform.system()])
     print(f"남은 시간: {rest.seconds}초")
+
 
 # 수강신청 페이지로 이동
 driver.execute_script('moveUrl("SU_53001/Sugang_Save.ASPX")')
