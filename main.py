@@ -66,15 +66,12 @@ time.sleep(1)
 login(inha_browser)
 print_shop_line()
 print("로그인을 성공하였습니다. ")
-print("설정한 시각에 따라 3초 후 타이머가 시작됩니다.")
+
 print_shop_line()
-time.sleep(3)
 if USER_MODE:
-    while True:
-        if (seconds := get_diff_time_as_seconds(start_time, get_now(time_browser))) <= 0:
-            break
-        console_clear()
-        print_rest_time(seconds)
+    print("설정한 시각에 따라 3초 후 타이머가 시작됩니다.")
+    time.sleep(3)
+    go_timer(start_time, time_browser)
 
 # 수강신청 페이지로 이동
 inha_browser.execute_script('moveUrl("SU_53001/Sugang_Save.ASPX")')
