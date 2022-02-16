@@ -5,7 +5,7 @@ from util.time_util import *
 
 inha_browser, time_browser = get_drivers()
 USER_MODE = True
-
+is_general = False
 if USER_MODE:
     print_shop_line()
     print("인하대학교 수강신청 봇")
@@ -56,6 +56,8 @@ if USER_MODE:
     else:
         # 수강 신청 시작 시간 세팅
         start_time = plans[flag][1]
+        if "일반" in plans[flag][0]:
+            is_general = True
     print_shop_line()
     print(f"설정된 시각: {start_time.isoformat()}")
 console_clear()
@@ -79,7 +81,8 @@ inha_browser.switch_to.parent_frame()
 inha_browser.switch_to.frame("MainFrame")
 
 # 수강신청 페이지에서 첫 alert창 기다렸다 무효화
-wait_alert(inha_browser)
+if not is_general:
+    wait_alert(inha_browser)
 print("INFO: 첫 알림 메시지를 무효화 합니다.")
 # 수강신청 대기 리스트가 있으면 수강신청 시도 계속하기
 while count := (len(inha_browser.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11):
