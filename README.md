@@ -25,7 +25,7 @@
 
 ### 환경설정
 
-> Python 환경에서 제작되었습니다.'
+> Python 환경에서 제작되었습니다.
 
 > 추가적인 환경설정은 하지 않아도 됩니다.
 
@@ -44,23 +44,22 @@ pip install webdriver_manager
 
 > 1. 본 프로그램은 크롤링 학습용 프로그램입니다. 아래 동의사항에 동의합니다.
 
-![image](https://user-images.githubusercontent.com/59782504/153318633-ba7a54bc-4da3-42ff-b534-570f898a8b68.png)
-
-> 2. 수강신청 시각을 자동으로 가져옵니다. 아래 시간에서 번호에 맞는 시간을 고릅니다. (직접 지정할 수 있습니다.)
-
 <img width="646" alt="image" src="https://user-images.githubusercontent.com/59782504/154207631-0443f09b-c596-4eea-ac97-5412baad9d12.png">
 
-> 아이디와 비밀번호를 입력하여 로그인합니다. (따로 저장하지 않으니 안심하고 사용할 수 있습니다.)
+
+> 2. 수강신청 시각을 자동으로 가져옵니다. 아래 시간에서 번호에 맞는 시간을 고릅니다. (0번을 선택하여 직접 지정할 수 있습니다.)
 
 <img width="251" alt="image" src="https://user-images.githubusercontent.com/59782504/154210307-6a9ac7a8-0ac6-4dbf-ad57-923d3a79e4c3.png">
 
-> 4. 수강신청 시작 시각을 묻습니다. 10시 00분에 시작한다면 위의 예시처럼 10, 00을 차례대로 입력합니다.
+
+> 아이디와 비밀번호를 입력하여 로그인합니다. (따로 저장하지 않으니 안심하고 사용할 수 있습니다.)
+
 
 ![image](https://user-images.githubusercontent.com/59782504/153318940-f53e51eb-e652-4566-be0c-0e178e11026f.png)
 
-> 5. 남은 시간이 나옵니다. 타이머가 끝날 경우 자동적으로 수강신청 시도를 시작합니다.
-
 <img width="540" alt="image" src="https://user-images.githubusercontent.com/59782504/154210542-fd5d6bd7-f475-40b7-ad19-b7ffcf4cf110.png">
+
+> 5. 남은 시간이 나옵니다. 타이머가 끝날 경우 자동적으로 수강신청 시도를 시작합니다.
 
 <hr>
 
@@ -73,8 +72,7 @@ pip install webdriver_manager
 
 > 수강신청 목록을 인식하고, 수강신청시 해당 수강신청 성공/실패 여부를 반영할 예정입니다.
 
-<hr>
-
+<hr>   
 
 ### Release V1 수정 내용
 > 수강 신청 목록 1개가 남았을 때 신청되지 않던 에러를 수정하였습니다.
