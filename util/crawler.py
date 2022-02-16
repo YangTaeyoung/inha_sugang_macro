@@ -103,7 +103,6 @@ def wait_alert(driver):
 
 def try_sugang(start, driver: selenium.webdriver.Chrome):
     for i in range(start, len(driver.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11 + start):
-        print(i)
         try:
             if len(driver.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11 == 1:
                 until_tr = f"/html/body/form/div[2]/div[2]/div[4]/table/tbody/tr/"
