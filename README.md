@@ -17,7 +17,7 @@
 
 > ~~백그라운드 환경은 테스트 되지 않았습니다. 되도록 백그라운드가 아닌 상태에서 실행하길 권장합니다.~~
 
-> 백그라운드 환경이 테스트 되었습니다. (2022-02-10) 백그라운드 환경에서 사용하길 권장합니다.
+> 백그라운드 환경이 테스트 되었습니다. (2022-02-10) 수강신청의 전 과정은 백그라운드에서 진행됩니다.
 
 > 수강신청 봇은 수강신청 장바구니 기능을 통해 담겨져 있는 후보군에 대해서만 수강신청을 시도합니다. 장바구니에 담겨져 있지 않은 것은 수강신청 시도 대상이 아니며, 우선수강신청으로 인해 이미 성공한 것을 구분하지 못합니다. 따라서 수강신청 장바구니를 정리하고 시도하길 권장합니다.
 
@@ -39,21 +39,20 @@ pip install webdriver_manager
 
 ### How To Use
 
-![image](https://user-images.githubusercontent.com/59782504/153318378-a948b7ae-11f7-44f3-8705-8e090bff8467.png)
+<img width="652" alt="image" src="https://user-images.githubusercontent.com/59782504/154207529-6fc68bd7-9588-4309-a740-3e3c18e7cfae.png">
+
 
 > 1. 본 프로그램은 크롤링 학습용 프로그램입니다. 아래 동의사항에 동의합니다.
 
-![image](https://user-images.githubusercontent.com/59782504/153318532-823f6670-5f04-4ef8-84f6-bebd05704c79.png)
-
-> 2. 백그라운드에서 실행 여부를 묻습니다. Y나 N을 누르시면 됩니다. (Y를 권장합니다.)
-
 ![image](https://user-images.githubusercontent.com/59782504/153318633-ba7a54bc-4da3-42ff-b534-570f898a8b68.png)
 
-> 3. 아이디와 비밀번호를 묻습니다. 실제 로그인 되는 비밀번호로 입력하셔야 합니다
+> 2. 수강신청 시각을 자동으로 가져옵니다. 아래 시간에서 번호에 맞는 시간을 고릅니다. (직접 지정할 수 있습니다.)
 
-> 해당 프로그램은 로그인을 시도할 뿐 로그인 실패를 알아내지 못합니다. 따라서 사전에 아이디와 비밀번호가 로그인 가능한지 확인하셔야 합니다.
+<img width="646" alt="image" src="https://user-images.githubusercontent.com/59782504/154207631-0443f09b-c596-4eea-ac97-5412baad9d12.png">
 
-![image](https://user-images.githubusercontent.com/59782504/153318795-d21b0592-dce2-4836-ba0c-f8a23c1f42a4.png)
+> 아이디와 비밀번호를 입력하여 로그인합니다. (따로 저장하지 않으니 안심하고 사용할 수 있습니다.)
+
+<img width="251" alt="image" src="https://user-images.githubusercontent.com/59782504/154210307-6a9ac7a8-0ac6-4dbf-ad57-923d3a79e4c3.png">
 
 > 4. 수강신청 시작 시각을 묻습니다. 10시 00분에 시작한다면 위의 예시처럼 10, 00을 차례대로 입력합니다.
 
@@ -61,15 +60,12 @@ pip install webdriver_manager
 
 > 5. 남은 시간이 나옵니다. 타이머가 끝날 경우 자동적으로 수강신청 시도를 시작합니다.
 
+<img width="540" alt="image" src="https://user-images.githubusercontent.com/59782504/154210542-fd5d6bd7-f475-40b7-ad19-b7ffcf4cf110.png">
+
 <hr>
 
-### 알려진 버그
-> 백그라운드가 아닌 상황에서 실행 시 윈도우 터미널에서 그냥 종료시 크롬 창이 무한생성되는 버그가 있습니다. (Ctrl + C로 종료시 해당 문제는 없어집니다.)
 
-> 창이 무한생성 될 때 로그오프을 하셨다가 다시 로그온 하시거나, 컴퓨터를 재부팅하시면 해결됩니다. 
-<hr>
-
-### V0.1 예정
+### V1 
 
 > 아이디, 비밀번호 틀릴 시 식별하도록 설정할 예정입니다.
 
@@ -79,7 +75,15 @@ pip install webdriver_manager
 
 <hr>
 
-### 릴리즈 (0.1 Beta)
+
+### Release V1 수정 내용
+> 수강 신청 목록 1개가 남았을 때 신청되지 않던 에러를 수정하였습니다.
+
+> 아이디 비밀번호가 틀렸을 때 구분하게 바뀌었습니다.
+
+> 수강신청 시간 목록을 자동으로 가져오는 기능을 추가하였습니다
+
+### Download Release
 > **Windows** (11 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Windows)%20InhaSugangTryBot%20V0.1%20Beta.exe
 
 > **Mac OS** (Monetery 12.2 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Mac)%20InhaSugangTryBot%20V0.1%20Beta
