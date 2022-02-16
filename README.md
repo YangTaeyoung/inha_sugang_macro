@@ -71,6 +71,6 @@ pip install webdriver_manager
 > 수강신청 시간 목록을 자동으로 가져오는 기능을 추가하였습니다
 
 ### Download Release
-> **Windows** (11 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Windows)%20InhaSugangTryBot%20V0.1%20Beta.exe
+> **Windows** (11 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Mac)%20InhaSugangTryBot%20V1
 
-> **Mac OS** (Monetery 12.2 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Mac)%20InhaSugangTryBot%20V0.1%20Beta
+> **Mac OS** (Monetery 12.2 Tested): https://github.com/YangTaeyoung/inha_sugang_macro_v1/raw/master/Release/(Windows%2011)%20InhaSugangTryBot%20V1.exe
