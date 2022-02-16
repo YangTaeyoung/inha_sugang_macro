@@ -1,3 +1,5 @@
+import sys
+
 from .console import *
 import selenium
 import datetime
@@ -99,20 +101,25 @@ def wait_alert(driver):
             continue
 
 
-def try_sugang(driver):
-    for i in range(1, len(driver.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11 + 1):
+def try_sugang(start, driver: selenium.webdriver.Chrome):
+    for i in range(start, len(driver.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11 + start):
+        print(i)
         try:
+            if len(driver.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11 == 1:
+                until_tr = f"/html/body/form/div[2]/div[2]/div[4]/table/tbody/tr/"
+            else:
+                until_tr = f"/html/body/form/div[2]/div[2]/div[4]/table/tbody/tr[{i}]/"
             title = driver.find_element(by=By.XPATH,
-                                        value=f"/html/body/form/div[2]/div[2]/div[4]/table/tbody/tr[{i}]/td[2]").text
+                                        value=f"{until_tr}td[2]").text
             print(f"INFO: {title} 에 수강신청을 시도합니다.")
             button = driver.find_element(by=By.XPATH,
-                                         value=f"/html/body/form/div[2]/div[2]/div[4]/table/tbody/tr[{i}]/td[9]/input")
+                                         value=f"{until_tr}td[9]/input")
             button.click()
             # 수강신청 하시겠습니까? alert창 무효화
             wait_alert(driver)
             print("INFO: 수강신청 질문 창을 무효화 합니다.")
             # 수강신청이 성공되었습니다./인원이 가득 찼습니다. alert창 무효화
             print(f"INFO: {title}: {wait_alert(driver)}")
-
-        except:  # 오류 발견 시: 즉시 종료 처리
+        except selenium.common.exceptions.NoSuchElementException:
+            try_sugang(start + 1, driver)
             return

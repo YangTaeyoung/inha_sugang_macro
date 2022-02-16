@@ -87,5 +87,5 @@ print("INFO: 첫 알림 메시지를 무효화 합니다.")
 # 수강신청 대기 리스트가 있으면 수강신청 시도 계속하기
 while count := (len(inha_browser.find_elements(by=By.XPATH, value='//*[@id="dgList2"]/tbody//*')) // 11):
     print(f"INFO: 수강신청 항목이 {count}개 남았습니다. 계속 시도합니다.")
-    try_sugang(inha_browser)
+    try_sugang(1, inha_browser)
 print("수강신청이 성공적으로 종료되었습니다. 축하합니다.")
