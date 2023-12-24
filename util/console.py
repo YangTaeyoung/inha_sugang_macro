@@ -1,5 +1,7 @@
 import os
 import platform
+
+
 # 콘솔 지우는 함수
 def console_clear():
     clear_commands = {

@@ -1,41 +1,45 @@
-import sys
+import re
+from datetime import datetime
 
-from .console import *
 import selenium
-import datetime
-from selenium.webdriver.common.by import By
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
+
+from util.console import console_clear, print_shop_line
 
 
 # 수강 신청일자를 가져오는 함수
 def find_sugang_date_automatically(driver: webdriver.Chrome):
-    i = 1
+    row = 1
     plan_dates = list()
     while True:
         try:
-            plan_text = driver.find_element(by=By.XPATH, value=f'//*[@id="dgSchedule"]/tbody/tr[{i}]/td[2]').text
+            plan_text = driver.find_element(by=By.XPATH, value=f'//*[@id="dgSchedule"]/tbody/tr[{row}]/td[2]').text
         except selenium.common.exceptions.NoSuchElementException:
             break
         if "수강신청" in plan_text:
             plan_date = driver.find_element(by=By.XPATH,
-                                            value=f'//*[@id="dgSchedule"]/tbody/tr[{i}]/td[1]').text.split()
-            plan_date[0] = int(plan_date[0][:-1])
-            plan_date[1] = int(plan_date[1][:-1])
-            plan_date[2] = int(plan_date[2][:-3])
-            plan_date[3] = list(map(int, plan_date[3].split(":")))
-            plan_date = plan_date[:4]
-            plan_date = datetime.datetime(
-                year=plan_date[0],
-                month=plan_date[1],
-                day=plan_date[2],
-                hour=plan_date[3][0],
-                minute=plan_date[3][1]
-            )
-            plan_dates.append([plan_text, plan_date])
-        i += 1
+                                            value=f'//*[@id="dgSchedule"]/tbody/tr[{row}]/td[1]').text
+            if plan_start_date := extract_datetime(plan_date):
+                plan_dates.append([plan_text, plan_start_date])
+        row += 1
+
     return plan_dates
+
+
+# 수강 신청 텍스트에서 날짜를 뽑아내는 함수
+def extract_datetime(text: str) -> datetime | None:
+    # 정규 표현식을 사용하여 날짜와 시간을 찾습니다.
+    pattern = r"(\d{4})\. ?(\d{1,2})\. ?(\d{1,2})\.\([가-힣]\) ?(\d{2}:\d{2})"
+    match = re.search(pattern, text)
+    if match:
+        year, month, day, time = match.groups()
+        datetime_obj = datetime.strptime(f"{year}-{month}-{day} {time}", "%Y-%m-%d %H:%M")
+        return datetime_obj
+    else:
+        return None
 
 
 # 크롬 드라이버를 세팅하고, 실행시키는 함수
@@ -61,7 +65,9 @@ def get_drivers():
 # 현재 날짜를 가져오는 함수
 def get_now(driver_time):
     text = driver_time.find_element(by=By.ID, value="time_area").text
-    time = datetime.datetime.strptime(text, "%Y년 %m월 %d일 %H시 %M분 %S초")
+    if "크리스마스" in text:
+        text = text.replace("크리스마스", "12월 25일")
+    time = datetime.strptime(text, "%Y년 %m월 %d일 %H시 %M분 %S초")
     return time
 
 

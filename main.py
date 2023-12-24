@@ -1,5 +1,7 @@
 import sys
 import time
+
+from util.console import *
 from util.crawler import *
 from util.time_util import *
 

@@ -1,11 +1,12 @@
 import datetime
-from .crawler import get_now
-from .console import console_clear
+
+from util.console import console_clear
+from util.crawler import get_now
 
 
-def get_diff_time_as_seconds(time1: datetime.datetime, time2: datetime.datetime):
+def get_diff_time_as_seconds(time1: datetime.datetime, time2: datetime.datetime) -> int:
     diff = time1 - time2
-    return 86400 * diff.days + diff.seconds
+    return int(diff.total_seconds())
 
 
 def print_rest_time(seconds: int):
